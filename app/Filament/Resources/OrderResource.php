@@ -214,7 +214,7 @@ class OrderResource extends Resource
                         'processing'=>'Processing',
                         'shipped'=>'Shipped',
                         'delivered'=>'Delivered',
-                        'cancelled'=>'Cancelled'
+                        'canceled'=>'Canceled'
                     ]),
 
                 TextColumn::make('created_at')

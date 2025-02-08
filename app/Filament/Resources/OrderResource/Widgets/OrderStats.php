@@ -5,6 +5,7 @@ namespace App\Filament\Resources\OrderResource\Widgets;
 use App\Models\order;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
+use Illuminate\Support\Number;
 
 class OrderStats extends BaseWidget
 {
@@ -21,7 +22,7 @@ class OrderStats extends BaseWidget
             order::query()->where('status','shipped')->count()),
 
             Stat::make('Average Price',
-            round(order::query()->avg('grand_total'),2)
+            Number::currency(order::query()->avg('grand_total') ?? 0,'Kshs')
             )
 
         ];
